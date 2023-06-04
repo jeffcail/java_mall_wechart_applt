@@ -4,6 +4,8 @@
 ```markdown
 https://mp.weixin.qq.com/
 ```
+### 申请微信小程序appid
+在project.config.json中替换成自己的appid
 
 #### 下载微信开发者工具
 <a href="https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html" target="_blank">微信开发者工具</a>
