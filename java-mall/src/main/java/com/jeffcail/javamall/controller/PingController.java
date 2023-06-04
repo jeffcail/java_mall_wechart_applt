@@ -1,6 +1,6 @@
 package com.jeffcail.javamall.controller;
 
-import com.jeffcail.javamall.Result.R;
+import com.jeffcail.javamall.result.R;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

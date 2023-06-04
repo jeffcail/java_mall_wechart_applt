@@ -1,4 +1,4 @@
-package com.jeffcail.javamall.Result;
+package com.jeffcail.javamall.result;
 
 import java.util.HashMap;
 import java.util.Map;
