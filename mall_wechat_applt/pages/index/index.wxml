@@ -1,0 +1,8 @@
+<!--index.wxml-->
+<view>
+  <!-- 搜索框开始 -->
+  <SearchBar></SearchBar>
+  <!-- 搜索框结束 -->
+
+  
+</view>

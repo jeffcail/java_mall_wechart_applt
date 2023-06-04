@@ -1,0 +1,17 @@
+/* 全局引入iconfont样式 */
+@import "./styles/iconfont.wxss"
+
+/** 初始化全局样式 **/
+page,view,text,swiper,swiper-item,image,navigator{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* 设置全局主题颜色、字体大小 */
+page{
+  /* 主体颜色 */
+  --themeColor: #ff5700;
+  /* 字体大小 rpx自适应大小 */
+  font-size: 28rpx;
+}
