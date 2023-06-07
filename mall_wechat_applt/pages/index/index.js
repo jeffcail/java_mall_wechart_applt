@@ -1,4 +1,4 @@
-import {request} from "../../utils/request.js"
+import {request,getBaseUrl} from "../../utils/request.js"
 
 Page({
 
@@ -7,17 +7,21 @@ Page({
    */
   data: {
     // 轮播图数组
-    swiperList:[]
+    swiperList:[],
+    // baseUrl
+    baseUrl: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    request({url: 'http://localhost:9090/api/product/findSwiper',method: 'GET',})
+    request({url: '/api/product/findSwiper',method: 'GET',})
     .then(result=>{
+      const baseUrl = getBaseUrl();
       this.setData({
-        swiperList:result.message
+        swiperList:result.message,
+        baseUrl: baseUrl
       })
     })
     // wx.request({
@@ -36,7 +40,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    
+
   },
 
   /**
