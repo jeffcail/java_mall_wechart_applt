@@ -13,7 +13,8 @@ Page({
     // 右侧商品数据
     rightProductList:[],
     baseUrl: '',
-    currentIndex: 0 // 当前选中左侧菜单的索引
+    currentIndex: 0, // 当前选中左侧菜单的索引
+    scrollTop: 0
   },
   // 所有数据
   Cates:[],
@@ -52,7 +53,8 @@ Page({
     let rightProductList = this.Cates[index].smallTypeList;
     this.setData({
       currentIndex: index,
-      rightProductList
+      rightProductList,
+      scrollTop: 0
     })
   }
 })

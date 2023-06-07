@@ -19,7 +19,7 @@
 
 
     <!-- 右侧商品开始 -->
-    <scroll-view scroll-y class="right_content">
+    <scroll-view scroll-y class="right_content" scroll-top="{{scrollTop}}">
       <view class="productType"
       wx:for="{{rightProductList}}"
       wx:for-item="productType"
