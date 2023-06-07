@@ -1,5 +1,6 @@
 package com.jeffcail.javamall.entity;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.jeffcail.javamall.config.CustomDateTimeSerialize;
@@ -7,6 +8,7 @@ import lombok.Data;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @ClassName 产品表实体
@@ -47,5 +49,8 @@ public class Product {
     private String productParaImgs;  // 商品规格参数图片
 
     private String description; // 描述
+
+    @TableField(select = false)
+    private List<ProductSwiperImage> productSwiperImageList;
 
 }

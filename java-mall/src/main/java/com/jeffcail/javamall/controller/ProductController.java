@@ -3,8 +3,10 @@ package com.jeffcail.javamall.controller;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.jeffcail.javamall.entity.Product;
+import com.jeffcail.javamall.entity.ProductSwiperImage;
 import com.jeffcail.javamall.result.R;
 import com.jeffcail.javamall.service.IProductService;
+import com.jeffcail.javamall.service.IProductSwiperImageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,6 +29,9 @@ public class ProductController {
 
     @Autowired
     IProductService productService;
+
+    @Autowired
+    private IProductSwiperImageService iProductSwiperImageService;
 
     /**
      * 轮播商品
@@ -54,6 +59,22 @@ public class ProductController {
          List<Product> records = productPage.getRecords();
          Map<String, Object> map = new HashMap<>();
          map.put("message", records);
+         return R.ok(map);
+     }
+
+     /**
+     * 商品详情
+     * @param id
+     * @return
+     */
+     @GetMapping("/detail")
+     public R detail(Integer id) {
+         Product product = productService.getById(id);
+         List<ProductSwiperImage> swiperImageList = iProductSwiperImageService.
+                 list(new QueryWrapper<ProductSwiperImage>().eq("productId", product.getId()).orderByAsc("sort"));
+         product.setProductSwiperImageList(swiperImageList);
+         HashMap<String, Object> map = new HashMap<>();
+         map.put("message", product);
          return R.ok(map);
      }
 
