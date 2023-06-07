@@ -17,6 +17,32 @@
       </swiper-item>
     </swiper>
   </view>
-  <!-- 轮播图开始 -->
+  <!-- 轮播图结束 -->
+
+  <!-- 金刚区开始 -->
+
+  <view class="index_bigType">
+    <view class="bigTypeRow">
+      <navigator
+      wx:for="{{bigTypeListRow1}}"
+      wx:for-item="bigType"
+      wx:key="id">
+        <image mode="widthFix" src="{{baseUrl+'/image/bigType/'+bigType.image}}"></image>
+      </navigator>
+    </view>
+  </view>
+
+  <view class="index_bigType">
+    <view class="bigTypeRow2">
+      <navigator
+      wx:for="{{bigTypeListRow1}}"
+      wx:for-item="bigType"
+      wx:key="id">
+        <image mode="widthFix" src="{{baseUrl+'/image/bigType/'+bigType.image}}"></image>
+      </navigator>
+    </view>
+  </view>
+
+  <!-- 金刚区结束 -->
   
 </view>

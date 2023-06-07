@@ -20,5 +20,7 @@ public class WebAppConfigurer implements WebMvcConfigurer {
 
         registry.addResourceHandler("/image/swiper/**").
                 addResourceLocations("file:/Users/cc/project/github/java/java_mall_wechat_applt/java-mall/swiperImgs/");
+        registry.addResourceHandler("/image/bigType/**").
+                addResourceLocations("file:/Users/cc/project/github/java/java_mall_wechat_applt/java-mall/bigTypeImages/");
     }
 }

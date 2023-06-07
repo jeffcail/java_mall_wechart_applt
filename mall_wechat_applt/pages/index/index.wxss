@@ -5,3 +5,25 @@
 .index_swiper swiper swiper-item image {
   width: 100%;
 }
+.index_bigType {
+  padding-top: 20rpx;
+  background-color: #f7f7f7;
+}
+.index_bigType .bigTypeRow {
+  display: flex;
+}
+.index_bigType .bigTypeRow navigator {
+  flex: 1;
+}
+.index_bigType .bigTypeRow navigator image {
+  width: 150rpx;
+}
+.index_bigType .bigTypeRow2 {
+  display: flex;
+}
+.index_bigType .bigTypeRow2 navigator {
+  flex: 1;
+}
+.index_bigType .bigTypeRow2 navigator image {
+  width: 150rpx;
+}
