@@ -6,28 +6,13 @@
 
   <!-- 轮播图开始 -->
   <view class="index_swiper">
-    <swiper>
-      <swiper-item>
+    <swiper 	autoplay 	circular	indicator-dots>
+      <swiper-item
+      wx:for="{{swiperList}}"
+      wx:for-item="swiper"
+      wx:key="id">
         <navigator>
-          <image mode="widthFix" src="http://localhost:9090/image/swiper/1.jpg"></image>
-        </navigator>
-      </swiper-item>
-
-      <swiper-item>
-        <navigator>
-          <image mode="widthFix" src="http://localhost:9090/image/swiper/2.jpg"></image>
-        </navigator>
-      </swiper-item>
-
-      <swiper-item>
-        <navigator>
-          <image mode="widthFix" src="http://localhost:9090/image/swiper/3.jpg"></image>
-        </navigator>
-      </swiper-item>
-
-      <swiper-item>
-        <navigator>
-          <image mode="widthFix" src="http://localhost:9090/image/swiper/4.jpg"></image>
+          <image mode="widthFix" src="{{'http://localhost:9090/image/swiper/'+swiper.swiperPic}}"></image>
         </navigator>
       </swiper-item>
     </swiper>

@@ -4,14 +4,24 @@ Page({
    * 页面的初始数据
    */
   data: {
-    
+    // 轮播图数组
+    swiperList:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    wx.request({
+      url: 'http://localhost:9090/api/product/findSwiper',
+      method: 'GET',
+      success: (result) => {
+        console.log(result);
+        this.setData({
+          swiperList:result.data.message
+        })
+      }
+    })
   },
 
   /**
