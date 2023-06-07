@@ -7,25 +7,28 @@ import lombok.Data;
 import java.util.List;
 
 /**
- * @ClassName BigType
+ * @ClassName SmallType
  * @Description TODO
  * @Author cc
- * @Date 2023/6/7 4:44 下午
+ * @Date 2023/6/7 9:49 下午
  * @Version 1.0
  */
-@TableName("t_bigtype")
+@TableName("t_smalltype")
 @Data
-public class BigType {
+public class SmallType {
 
-    private Integer id; // 编号
+    private Integer id;
 
     private String name;
 
     private String remark;
 
-    private String image;
+    private Integer bigTypeId;
 
     @TableField(select = false)
-    private List<SmallType> smallTypeList;
+    private BigType bigType;
+
+    @TableField(select = false)
+    private List<Product> productList;
 
 }
