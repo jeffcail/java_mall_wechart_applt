@@ -1,6 +1,7 @@
 package com.jeffcail.javamall.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.jeffcail.javamall.entity.Product;
 import com.jeffcail.javamall.result.R;
 import com.jeffcail.javamall.service.IProductService;
@@ -40,5 +41,20 @@ public class ProductController {
         map.put("message", productList);
         return R.ok(map);
     }
+
+     /**
+     * 热门商品
+     * @return
+     */
+     @GetMapping("/findHot")
+     public R findHot() {
+         Page<Product> page = new Page<>(0, 8);
+         Page<Product> productPage = productService.page(page, new QueryWrapper<Product>().
+                 eq("isHot", true).orderByAsc("hotDateTime"));
+         List<Product> records = productPage.getRecords();
+         Map<String, Object> map = new HashMap<>();
+         map.put("message", records);
+         return R.ok(map);
+     }
 
 }
