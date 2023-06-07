@@ -1,2 +1,50 @@
 <!--pages/category/index.wxml-->
-<text>pages/category/index.wxml</text>
+<view class="cates">
+  <!-- 搜索框开始 -->
+  <SearchBar></SearchBar>
+  <!-- 搜索框结束 -->
+
+  <view class="cates_container">
+    <!-- 左侧菜单开始 -->
+    <scroll-view scroll-y class="left_menu">
+      <view class="menu_item {{index==currentIndex ? 'active':''}}"
+      wx:for="{{leftMenuList}}"
+      wx:key="this"
+      data-index="{{index}}"
+      bindtap="handleMenuChange"
+      >{{item}}
+      </view>
+    </scroll-view>
+    <!-- 左侧菜单结束 -->
+
+
+    <!-- 右侧商品开始 -->
+    <scroll-view scroll-y class="right_content">
+      <view class="productType"
+      wx:for="{{rightProductList}}"
+      wx:for-item="productType"
+      wx:key="id"
+      >
+      <view class="productType_title">
+        {{productType.name}}
+      </view>
+      <view class="product_list"
+        wx:for="{{productType.productList}}"
+        wx:for-item="product"
+        wx:key="id"
+        >
+        <navigator>
+          <image src="{{baseUrl+'/image/productImages/'+product.proPic}}"></image>
+          <view class="right">
+            <view class="product_name">{{product.name}}</view>
+            <view class="product_price">¥{{product.price}}</view>
+            <view size="mini" type="warn"></view>
+          </view>
+        </navigator>
+        </view>
+      </view>
+    </scroll-view>
+    <!-- 右侧商品结束 -->
+  </view>
+
+</view>
