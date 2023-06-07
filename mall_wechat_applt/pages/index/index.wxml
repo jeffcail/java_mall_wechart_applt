@@ -4,5 +4,34 @@
   <SearchBar></SearchBar>
   <!-- 搜索框结束 -->
 
+  <!-- 轮播图开始 -->
+  <view class="index_swiper">
+    <swiper>
+      <swiper-item>
+        <navigator>
+          <image mode="widthFix" src="http://localhost:9090/image/swiper/1.jpg"></image>
+        </navigator>
+      </swiper-item>
+
+      <swiper-item>
+        <navigator>
+          <image mode="widthFix" src="http://localhost:9090/image/swiper/2.jpg"></image>
+        </navigator>
+      </swiper-item>
+
+      <swiper-item>
+        <navigator>
+          <image mode="widthFix" src="http://localhost:9090/image/swiper/3.jpg"></image>
+        </navigator>
+      </swiper-item>
+
+      <swiper-item>
+        <navigator>
+          <image mode="widthFix" src="http://localhost:9090/image/swiper/4.jpg"></image>
+        </navigator>
+      </swiper-item>
+    </swiper>
+  </view>
+  <!-- 轮播图开始 -->
   
 </view>
