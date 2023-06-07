@@ -1,4 +1,5 @@
 import {request,getBaseUrl} from "../../utils/request.js"
+import regeneratorRuntime from "../../lib/runtime/runtime.js"
 
 Page({
 
@@ -16,14 +17,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    request({url: '/api/product/findSwiper',method: 'GET',})
-    .then(result=>{
-      const baseUrl = getBaseUrl();
-      this.setData({
-        swiperList:result.message,
-        baseUrl: baseUrl
-      })
-    })
+    this.getSwiperList()
     // wx.request({
     //   url: 'http://localhost:9090/api/product/findSwiper',
     //   method: 'GET',
@@ -36,52 +30,24 @@ Page({
     // })
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-    
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-    
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-    
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-    
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-    
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-    
+  async getSwiperList(){
+    const result = await request({
+      url: '/api/product/findSwiper',
+      method: 'GET'
+    });
+    const baseUrl = getBaseUrl();
+    this.setData({
+      swiperList:result.message,
+      baseUrl: baseUrl
+    })
+    // request({url: '/api/product/findSwiper',method: 'GET',})
+    // .then(result=>{
+    //   const baseUrl = getBaseUrl();
+    //   this.setData({
+    //     swiperList:result.message,
+    //     baseUrl: baseUrl
+    //   })
+    // })
   }
+
 })
