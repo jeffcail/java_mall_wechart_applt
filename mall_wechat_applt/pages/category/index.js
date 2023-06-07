@@ -48,6 +48,23 @@ Page({
      })   
   },
 
+  async getCatesList2(index) {
+    const result = await request({
+      url: "/api/bigType/findCategories",
+      method: "GET"
+    });
+    this.Cates = result.message;
+    let leftMenuList = this.Cates.map((v) => {
+      return v.name
+    })
+    let rightProductList = this.Cates[index].smallTypeList;
+     this.setData({
+       leftMenuList,
+       rightProductList,
+       currentIndex: index,
+       scrollTop: 0
+     })  
+    },
   handleMenuChange(e) {
     const {index} = e.currentTarget.dataset;
     let rightProductList = this.Cates[index].smallTypeList;
@@ -56,5 +73,15 @@ Page({
       rightProductList,
       scrollTop: 0
     })
+  },
+
+  onShow: function() {
+    const app=getApp();
+    const {index} = app.globalData;
+    
+    if (index != -1) {
+      this.getCatesList2(index);
+      app.globalData.index=-1;
+    }
   }
 })

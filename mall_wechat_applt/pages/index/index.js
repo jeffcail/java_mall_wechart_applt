@@ -89,6 +89,17 @@ Page({
       hotProductList: hotProductList
     })
     // console.log(hotProductList);
-  }
+  },
+
+  // 金刚区点击跳转
+  handleTypeJump(e){
+    console.log(e)
+    const {index}=e.currentTarget.dataset;
+    const app=getApp();
+    app.globalData.index=index;
+    wx.switchTab({
+      url: '/pages/category/index'
+    })
+  },
 
 })

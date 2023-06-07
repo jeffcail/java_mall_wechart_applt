@@ -24,6 +24,8 @@
   <view class="index_bigType">
     <view class="bigTypeRow">
       <navigator
+      bindtap="handleTypeJump"
+      data-index="{{index}}"
       wx:for="{{bigTypeListRow1}}"
       wx:for-item="bigType"
       wx:key="id">
@@ -35,7 +37,9 @@
   <view class="index_bigType">
     <view class="bigTypeRow2">
       <navigator
-      wx:for="{{bigTypeListRow1}}"
+      bindtap="handleTypeJump"
+      data-index="{{index+5}}"
+      wx:for="{{bigTypeListRow2}}"
       wx:for-item="bigType"
       wx:key="id">
         <image mode="widthFix" src="{{baseUrl+'/image/bigType/'+bigType.image}}"></image>
