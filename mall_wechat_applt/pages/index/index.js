@@ -14,7 +14,9 @@ Page({
     // 金刚区
     bigTypeList:[],
     bigTypeListRow1:[],
-    bigTypeListRow2:[]
+    bigTypeListRow2:[],
+    // 热门商品
+    hotProductList:[]
   },
 
   /**
@@ -23,6 +25,7 @@ Page({
   onLoad: function (options) {
     this.getSwiperList();
     this.getBigTypeList();
+    this.getHotProductList();
     // wx.request({
     //   url: 'http://localhost:9090/api/product/findSwiper',
     //   method: 'GET',
@@ -73,6 +76,19 @@ Page({
       bigTypeListRow1,
       bigTypeListRow2
     })
+  },
+
+  // 热门商品
+  async getHotProductList() {
+    const result = await request({
+      url: "/api/product/findHot",
+      method: "GET"
+    });
+    const hotProductList = result.message
+    this.setData({
+      hotProductList: hotProductList
+    })
+    // console.log(hotProductList);
   }
 
 })

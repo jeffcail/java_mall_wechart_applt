@@ -32,3 +32,36 @@
     }
   }
 }
+
+.index_hotProduct{
+  .product_title{
+    font-size: 32rpx;
+    font-weight: 600;
+    padding: 20rpx;
+    color: var(--themeColor);
+    background-color: #e0e0ee;
+  }
+  .product_list{
+    display: flex;
+    flex-wrap: wrap;
+    .product_detail{
+      width: 46%;
+      text-align: center;
+      margin: 15rpx;
+      navigator{
+        image{
+          width: 100%;
+          background-color: #f5f5f5;
+        }
+        .product_name{
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+        .product_price{
+          color: var(--themeColor);
+        }
+      }
+    }
+  }
+}

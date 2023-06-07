@@ -44,5 +44,27 @@
   </view>
 
   <!-- 金刚区结束 -->
+
+
+  <!-- 热门商品开始 -->
+
+  <view class="index_hotProduct">
+    <view class="product_title">热门商品</view>
+    <view class="product_list">
+      <view class="product_detail"
+      wx:for="{{hotProductList}}"
+      wx:for-item="hotProduct"
+      wx:key="id">
+        <navigator>
+          <image src="{{baseUrl+'/image/productImages/'+hotProduct.proPic}}"></image>
+          <view class="product_name">{{hotProduct.name}}</view>
+          <view class="product_price">¥{{hotProduct.price}}</view>
+          <view size="mini" type="warn"></view>
+        </navigator>
+      </view>
+    </view>
+  </view>
+
+  <!-- 热门商品结束 -->
   
 </view>

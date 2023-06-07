@@ -27,3 +27,31 @@
 .index_bigType .bigTypeRow2 navigator image {
   width: 150rpx;
 }
+.index_hotProduct .product_title {
+  font-size: 32rpx;
+  font-weight: 600;
+  padding: 20rpx;
+  color: var(--themeColor);
+  background-color: #e0e0ee;
+}
+.index_hotProduct .product_list {
+  display: flex;
+  flex-wrap: wrap;
+}
+.index_hotProduct .product_list .product_detail {
+  width: 46%;
+  text-align: center;
+  margin: 15rpx;
+}
+.index_hotProduct .product_list .product_detail navigator image {
+  width: 100%;
+  background-color: #f5f5f5;
+}
+.index_hotProduct .product_list .product_detail navigator .product_name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.index_hotProduct .product_list .product_detail navigator .product_price {
+  color: var(--themeColor);
+}
