@@ -62,7 +62,7 @@
   </view>
 
 
-  <navigator open-type="switchTab" url="/pages/cart/index" class="tool_item btn_cart">
+  <navigator open-type="switchTab" url="/pages/cart/index" class="tool_item btn_cart" bindtap="handleCartAdd">
     <view>加入购物车</view>
   </navigator>
 

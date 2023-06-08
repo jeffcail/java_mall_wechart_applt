@@ -13,6 +13,8 @@ Page({
     activeIndex: 0
   },
 
+  productInfo: {},
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -34,6 +36,31 @@ Page({
     })
   },
 
+  // 购物车处理
+  handleCartAdd(e) {
+    this.setCardadd();
+    wx.showToast({
+      title: '购物车添加成功',
+      icon: 'success',
+      mask: true
+    })
+  },
+
+  // 加入购物车
+  setCardadd() {
+    let cart = wx.getStorageSync('cart')||[];
+    console.log(cart);
+    let index = cart.findIndex(v=>v.id===this.productInfo.id);
+    console.log(index);
+    if (index === -1) {
+      this.productInfo.num = 1;
+      cart.push(this.productInfo);
+    } else {
+      cart[index].num++;
+    }
+    wx.setStorageSync('cart', cart)
+  },
+
   // 获取商品详情
   async getProductDetail(id) {
     const result = await request({
@@ -42,6 +69,7 @@ Page({
       method: "GET"
     });
     const productOObj = result.message
+    this.productInfo=result.message
     this.setData({
       productOObj: productOObj
     })
