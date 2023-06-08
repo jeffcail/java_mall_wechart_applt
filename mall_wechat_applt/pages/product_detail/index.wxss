@@ -2,3 +2,32 @@
 .product_swiper swiper {
   height: 100vw;
 }
+.product_price {
+  padding: 15rpx;
+  font-size: 42rpx;
+  font-weight: 600;
+  color: var(--themeColor);
+}
+.product_name {
+  padding: 15rpx;
+  font-size: 42rpx;
+  font-weight: 600;
+  border-top: 1rpx solid #dedede;
+}
+.product_description {
+  padding: 0 10rpx 25rpx 10rpx;
+  border-bottom: 1rpx solid #dedede;
+}
+.desc_tabs .tabs_title {
+  display: flex;
+}
+.desc_tabs .tabs_title .title_item {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15rpx;
+}
+.desc_tabs .tabs_title .active {
+  color: var(--themeColor);
+}

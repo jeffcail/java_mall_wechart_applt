@@ -15,4 +15,31 @@
 </view>
 <!-- 轮播图结束 -->
 
+
+<!-- 详情页内容开始 -->
+
+<view class="product_price">{{productOObj.price}}</view>
+<view class="product_name">¥{{productOObj.name}}</view>
+<view class="product_description">{{productOObj.description}}</view>
+
+<view class="desc_tabs">
+  <view class="tabs_title">
+    <view class="title_item {{activeIndex==0?'active':''}}" data-index="0" bindtap="handleItemTap">商品介绍</view>
+    <view class="title_item {{activeIndex==1?'active':''}}" data-index="1" bindtap="handleItemTap">规格参数</view>
+  </view>
+
+
+  <view class="tabs_content">
+    <block wx:if="{{activeIndex==0}}">
+      <rich-text nodes="{{productOObj.productIntroImgs}}"/>
+    </block>
+
+    <block wx:if="{{activeIndex==1}}">
+      <rich-text nodes="{{productOObj.productParaImgs}}"/>
+    </block>
+  </view>
+</view>
+
+<!-- 详情页内容结束 -->
+
 </view>

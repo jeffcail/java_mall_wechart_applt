@@ -23,6 +23,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    const baseUrl = getBaseUrl();
+    this.setData({
+      baseUrl: baseUrl
+    })
+
     this.getSwiperList();
     this.getBigTypeList();
     this.getHotProductList();
@@ -43,10 +48,8 @@ Page({
       url: '/api/product/findSwiper',
       method: 'GET'
     });
-    const baseUrl = getBaseUrl();
     this.setData({
       swiperList:result.message,
-      baseUrl: baseUrl
     })
     // request({url: '/api/product/findSwiper',method: 'GET',})
     // .then(result=>{
