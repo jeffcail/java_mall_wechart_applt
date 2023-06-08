@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "SearchBar": "/components/SearchBar/SearchBar"
+  },
+  "navigationBarTitleText": "确认支付"
 }
