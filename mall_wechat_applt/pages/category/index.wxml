@@ -33,7 +33,7 @@
         wx:for-item="product"
         wx:key="id"
         >
-        <navigator>
+        <navigator url="/pages/product_detail/index?id={{product.id}}">
           <image src="{{baseUrl+'/image/productImages/'+product.proPic}}"></image>
           <view class="right">
             <view class="product_name">{{product.name}}</view>

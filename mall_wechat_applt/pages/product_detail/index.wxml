@@ -1,0 +1,18 @@
+<!--pages/product_detail/index.wxml-->
+<view>
+
+<!-- 轮播图开始 -->
+<view class="product_swiper">
+    <swiper 	autoplay 	circular	indicator-dots>
+      <swiper-item
+      wx:for="{{productOObj.productSwiperImageList}}"
+      wx:key="id">
+        <navigator>
+          <image mode="widthFix" src="{{baseUrl+'/image/detail/'+item.image}}"></image>
+        </navigator>
+      </swiper-item>
+    </swiper>
+</view>
+<!-- 轮播图结束 -->
+
+</view>
