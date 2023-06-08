@@ -1,0 +1,22 @@
+/* pages/cart/index.wxss */
+.receive_address_row .address_btn {
+  padding: 20rpx;
+}
+.receive_address_row .address_btn button {
+  width: 60%;
+}
+.receive_address_row .user_info_row {
+  display: flex;
+  padding: 20rpx;
+}
+.receive_address_row .user_info_row .user_info {
+  flex: 5;
+}
+.receive_address_row .user_info_row .change_address_btn {
+  flex: 3;
+  text-align: center;
+}
+.receive_address_row .user_info_row .change_address_btn button {
+  border: 1px solid gray;
+  font-weight: normal;
+}

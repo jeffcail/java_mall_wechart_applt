@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "SearchBar": "/components/SearchBar/SearchBar"
+  },
+  "navigationBarTitleText": "购物车"
 }

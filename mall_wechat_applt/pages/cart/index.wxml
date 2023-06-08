@@ -1,2 +1,18 @@
-<!--pages/cart/index.wxml-->
-<text>pages/cart/index.wxml</text>
+<!-- 收货地址 开始 -->
+<view class="recevie_address_row">
+  <view class="address_btn" wx:if="{{!address}}">
+    <button type="warn" plain bindtap="handleChooseAddress" >获取收货地址</button>
+  </view>
+
+  <view wx:else class="user_info_row">
+    <view class="user_info">
+      <view>收货人：{{address.userName}},{{address.telNumber}}</view>
+      <view>{{address.provinceName+address.cityName+address.countyName+address.detailInfo}}</view>
+    </view>
+
+    <view class="change_address_btn">
+      <button size="mini" plain>更换地址</button>
+    </view>
+  </view>
+</view>
+<!-- 收货地址 结束 -->
