@@ -27,6 +27,29 @@ Page({
     })
   },
 
+  // 结算
+  handlePay() {
+    const {address, totalNum} = this.data;
+    if (!address) {
+      wx.showToast({
+        title: '请填写收货地址',
+        icon: 'none'
+      })
+      return;
+    }
+
+    if (totalNum===0) {
+      wx.showToast({
+        title: '暂无需要结算的订单',
+        icon: 'noe'
+      })
+      return;
+    }
+    wx.navigateTo({
+      url: '/pages/pay/index',
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */

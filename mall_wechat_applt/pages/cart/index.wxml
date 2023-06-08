@@ -79,7 +79,7 @@
   <!-- 合计 结束 -->
 
   <!-- 结算 开始 -->
-  <view class="order_pay_wrap">
+  <view class="order_pay_wrap" bindtap="handlePay">
     结算({{totalNum}})
   </view>
   <!-- 结算 结束 -->
