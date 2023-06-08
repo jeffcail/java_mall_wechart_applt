@@ -65,9 +65,15 @@ export const request=(params)=>{
   //   if (new Date().getTime-start>0.2*1000) break;
   // }
 
+  let header={...params.header};
+  if (params.url.includes("/my/")) {
+    header["token"] = wx.getStorageSync('token');
+  }
+
   return new Promise((resolve, reject)=>{
     wx.request({
       ...params,
+      header,
       url: baseUrl+params.url,
       success:(result)=>{
         resolve(result.data)

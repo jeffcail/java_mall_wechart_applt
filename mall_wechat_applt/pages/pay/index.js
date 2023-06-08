@@ -26,19 +26,29 @@ Page({
     // let res2 = await getUserProfile();
     // console.log(res2)
 
-    Promise.all([getWxLogin(), getUserProfile()]).then((res)=>{
-      // console.log(res[0].code);
-      // console.log(res[1].userInfo.nickName, res[1].userInfo.avatarUrl)
-      let loginParam = {
-        code: res[0].code,
-        nickName: res[1].userInfo.nickName,
-        avatarUrl: res[1].userInfo.avatarUrl
-      }
-      // console.log(loginParam)
+    const token = wx.getStorageSync('token');
+    if (!token) {
+      Promise.all([getWxLogin(), getUserProfile()]).then((res)=>{
+        // console.log(res[0].code);
+        // console.log(res[1].userInfo.nickName, res[1].userInfo.avatarUrl)
+        let loginParam = {
+          code: res[0].code,
+          nickName: res[1].userInfo.nickName,
+          avatarUrl: res[1].userInfo.avatarUrl
+        }
+        // console.log(loginParam)
+  
+        wx.setStorageSync('userInfo', res[1].userInfo);
+        this.wxlogin(loginParam);
+        // 创建订单
+        this.createOrder();
+      })
+    } else {
+      console.log(token);
 
-      wx.setStorageSync('userInfo', res[1].userInfo);
-      this.wxlogin(loginParam);
-    })
+      // 创建订单
+      this.createOrder();
+    }
   },
 
   /**
@@ -53,10 +63,38 @@ Page({
     });
     console.log(res)
     
-    const token = result.token;
-    if (result.code === 0) {
+    const token = res.token;
+    if (res.code === 0) {
       wx.setStorageSync('token', token);
+      // console.log('--------------------------------',wx.getStorageSync('token'))
     }
+  },
+
+  /**
+   * 创建订单
+   */
+  async createOrder() {
+    const totalPrice=this.data.totalPrice;
+    const address=this.data.address.provinceName+this.data.address.cityName+this.data.address.countyName+this.data.address.detailInfo;
+    const consignee=this.data.address.userName;
+    const telNumber=this.data.address.telNumber;
+    let goods=[];
+    this.data.cart.forEach(v=>goods.push({
+      goodsId:v.id,
+      goodsNumber:v.num,
+      goodsPrice:v.price,
+      goodsName:v.name,
+      goodsPic:v.proPic
+    }))
+    const orderParam={
+      totalPrice,
+      address,
+      consignee,
+      telNumber,
+      goods
+    }
+    const res = await request({url:"/api/my/order/create", method:"POST", data:orderParam});
+    console.log("orderNo="+res.orderNo)
   },
 
   /**

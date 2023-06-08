@@ -92,7 +92,10 @@ public class UserController {
 
 
         // 利用jwt生成token返回到前端
-        String token = JwtUtil.generateToken(openid, wxUserInfo.getNickName(), WxUserConstant.Jwt_Ttl);
+        // String token = JwtUtil.generateToken(openid, wxUserInfo.getNickName(), WxUserConstant.Jwt_Ttl);
+        // 应该调用真实获取到的openid
+        // 模拟opendi
+        String token = JwtUtil.generateToken("dfasdfsdaadfasds", wxUserInfo.getNickName(), WxUserConstant.Jwt_Ttl);
         HashMap<String, Object> map = new HashMap<>();
         map.put("token", token);
         return R.ok(map);

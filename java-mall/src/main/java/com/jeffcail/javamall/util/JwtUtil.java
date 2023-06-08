@@ -22,7 +22,7 @@ public class JwtUtil {
      * 签发token
      * @param id
      * @param subject
-     * @param tlMills
+     * @param ttlMills
      * @return
      */
     public static String generateToken(String id, String subject, long ttlMills) {
