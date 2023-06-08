@@ -24,5 +24,7 @@ public class WebAppConfigurer implements WebMvcConfigurer {
                 addResourceLocations("file:/Users/cc/project/github/java/java_mall_wechat_applt/java-mall/bigTypeImages/");
         registry.addResourceHandler("/image/productImages/**").
                 addResourceLocations("file:/Users/cc/project/github/java/java_mall_wechat_applt/java-mall/productImgs/");
+        registry.addResourceHandler("/image/detail/**").
+                addResourceLocations("file:/Users/cc/project/github/java/java_mall_wechat_applt/java-mall/productDetailImgs/");
     }
 }
