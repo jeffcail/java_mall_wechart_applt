@@ -26,8 +26,8 @@
     >
       <!-- 复选框 开始 -->
       <view class="cart_chk_wrap">
-        <checkbox-group>
-          <checkbox></checkbox>
+        <checkbox-group data-id="{{item.id}}" bindchange="handleItemChange">
+          <checkbox checked="{{item.checked}}"></checkbox>
         </checkbox-group>
       </view>
       <!-- 复选框 结束 -->
@@ -48,9 +48,9 @@
             ¥{{item.price}}
           </view>
           <view class="cart_num_tool">
-            <view class="num_edit">–</view>
+            <view class="num_edit" bindtap="handleItemNumEdit" data-id="{{item.id}}" data-operation="{{-1}}">–</view>
             <view class="goods_num">{{item.num}}</view>
-            <view class="num_edit">+</view>
+            <view class="num_edit" bindtap="handleItemNumEdit" data-id="{{item.id}}" data-operation="{{1}}">+</view>
           </view>
         </view>
       </view>
@@ -64,8 +64,8 @@
 <view class="footer_tool">
   <!-- 全选 开始 -->
   <view class="all_chk_wrap">
-    <checkbox-group>
-      <checkbox><text decode="true">&nbsp;&nbsp;全选</text></checkbox>
+    <checkbox-group bindchange="handleItemAllCheck">
+      <checkbox checked="{{allChecked}}"><text decode="true">&nbsp;&nbsp;全选</text></checkbox>
     </checkbox-group>
   </view>
   <!-- 全选 结束 -->
@@ -73,14 +73,14 @@
   <!-- 合计 开始 -->
   <view class="total_price_wrap">
     <view class="total_price">
-      合计：<text class="total_price_text">¥ 666</text>
+      合计：<text class="total_price_text">¥ {{totalPrice}}</text>
     </view>
   </view>
   <!-- 合计 结束 -->
 
   <!-- 结算 开始 -->
   <view class="order_pay_wrap">
-    结算(6)
+    结算({{totalNum}})
   </view>
   <!-- 结算 结束 -->
 </view>
