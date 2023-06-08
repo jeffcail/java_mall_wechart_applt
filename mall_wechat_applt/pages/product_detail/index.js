@@ -46,6 +46,14 @@ Page({
     })
   },
 
+  // 立即购买
+  handleBuy() {
+    this.setCardadd();
+    wx.switchTab({
+      url: '/pages/cart/index',
+    })
+  },
+
   // 加入购物车
   setCardadd() {
     let cart = wx.getStorageSync('cart')||[];

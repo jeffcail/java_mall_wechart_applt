@@ -67,7 +67,7 @@
   </navigator>
 
 
-  <view class="tool_item btn_buy">
+  <view class="tool_item btn_buy" bindtap="handleBuy">
     <view>立即购买</view>
   </view>
 
