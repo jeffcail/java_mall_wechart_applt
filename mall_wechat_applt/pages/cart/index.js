@@ -1,11 +1,18 @@
-// pages/cart/index.js
+// 导入request请求工具类
+import {
+  getBaseUrl,
+  request
+} from '../../utils/request.js';
+import regeneratorRuntime from '../../lib/runtime/runtime';
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    address:{}
+    address:{},
+    baseUrl: '',
+    cart:[]
   },
 
   handleChooseAddress(){
@@ -21,7 +28,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    const baseUrl = getBaseUrl();
+    this.setData({
+      baseUrl
+    })
   },
 
   /**
@@ -37,8 +47,10 @@ Page({
   onShow: function () {
     console.log("show")
     const address=wx.getStorageSync('address');
+    const cart=wx.getStorageSync('cart')||[];
     this.setData({
-      address
+      address,
+      cart
     })
   },
 

@@ -1,5 +1,4 @@
-/* pages/cart/index.wxss */
-.receive_address_row{
+.recevie_address_row{
   .address_btn{
     padding: 20rpx;
     button{
@@ -11,14 +10,87 @@
     display: flex;
     padding: 20rpx;
     .user_info{
-      flex: 5;
+      flex:5;
     }
     .change_address_btn{
-      flex: 3;
-      text-align: center;
+      flex:3;
+      text-align: right;
       button{
         border: 1px solid gray;
         font-weight: normal;
+      }
+    }
+  }
+}
+
+
+.cart_content{
+  background-color: #F5F5F5;
+  .cart_main{
+    padding: 2rpx 10rpx 10rpx 10rpx;
+    .cart_item{
+      display: flex;
+      background-color: white;
+      border-radius: 10px;
+      margin: 20rpx;
+      padding-right: 20rpx;
+      .cart_chk_wrap{
+        flex:1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 20rpx;
+      }
+      .cart_img_wrap{
+        flex:2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #F5F5F5;
+        margin: 20rpx;
+        border-radius: 10px;
+        image{
+          width: 80%;
+        }
+      }
+      .cart_info_wrap{
+        flex:4;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        .goods_name{
+          font-weight: bolder;
+          display: -webkit-box;
+          overflow: hidden;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 2;
+        }
+        .goods_price_wrap{
+          display: flex;
+          justify-content: space-between;
+          .goods_price{
+            color: var(--themeColor);
+            font-size: 34rpx;
+          }
+          .cart_num_tool{
+            display: flex;
+            .num_edit{
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              width: 55rpx;
+              height: 55rpx;
+            }
+            .goods_num{
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              width: 85rpx;
+              height: 55rpx;
+              background-color: #F5F5F5;
+            }
+          }
+        }
       }
     }
   }
