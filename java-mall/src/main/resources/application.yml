@@ -20,3 +20,9 @@ mybatis-plus:
     auto-mapping-behavior: full # 自动映射任何复杂的结果
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
   mapper-locations: classpath:mapper/*.xml
+
+# GET https://api.weixin.qq.com/sns/jscode2session?appid=APPID&secret=SECRET&js_code=JSCODE&grant_type=authorization_code
+weixin:
+  jscode2sessionUrl: https://api.weixin.qq.com/sns/jscode2session
+  appid:              # 真实的appid
+  secret:             # 真实的secret

@@ -27,9 +27,31 @@ Page({
     // console.log(res2)
 
     Promise.all([getWxLogin(), getUserProfile()]).then((res)=>{
-      console.log(res[0].code);
-      console.log(res[1].userInfo.nickName, res[1].userInfo.avatarUrl)
+      // console.log(res[0].code);
+      // console.log(res[1].userInfo.nickName, res[1].userInfo.avatarUrl)
+      let loginParam = {
+        code: res[0].code,
+        nickName: res[1].userInfo.nickName,
+        avatarUrl: res[1].userInfo.avatarUrl
+      }
+      // console.log(loginParam)
+
+      wx.setStorageSync('userInfo', res[1].userInfo);
+      this.wxlogin(loginParam);
     })
+  },
+
+  /**
+   * 请求后端获取用户token
+   * @param {*} loginParam 
+   */
+  async wxlogin(loginParam) {
+    const res = await request({
+      url: '/api/wx/user/login',
+      data: loginParam,
+      method: "POST",
+    });
+    console.log(res)
   },
 
   /**
