@@ -56,8 +56,6 @@
     <button open-type="contact"></button>
   </view>
 
-
-
   <view class="tool_item">
     <view class="iconfont icon-gouwucheman"></view>
     <view>购物车</view>

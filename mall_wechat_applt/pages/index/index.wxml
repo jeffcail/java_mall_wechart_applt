@@ -59,7 +59,7 @@
       wx:for="{{hotProductList}}"
       wx:for-item="hotProduct"
       wx:key="id">
-        <navigator>
+        <navigator url="/pages/product_detail/index?id={{hotProduct.id}}">
           <image src="{{baseUrl+'/image/productImages/'+hotProduct.proPic}}"></image>
           <view class="product_name">{{hotProduct.name}}</view>
           <view class="product_price">¥{{hotProduct.price}}</view>
