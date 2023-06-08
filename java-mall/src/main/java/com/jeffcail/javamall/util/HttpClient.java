@@ -164,10 +164,10 @@ public class HttpClient {
 
     /**
      * 发送 get请求Https
-     * @param url
+     * @param httpUrl
      */
-    public String sendHttpsGet(String url) {
-        HttpGet httpGet = new HttpGet(url);// 创建get请求
+    public String sendHttpsGet(String httpUrl) {
+        HttpGet httpGet = new HttpGet(httpUrl);// 创建get请求
         return sendHttpsGet(httpGet);
     }
 

@@ -9,3 +9,6 @@
 
 #### 开发工具 
 IDEA
+
+#### 申请 企业微信小程序 appid 和 secret
+需要营业执照。 替换程序中的 appid和 secret 即可

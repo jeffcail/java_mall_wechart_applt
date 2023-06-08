@@ -15,7 +15,7 @@ import java.util.Date;
  * @Date 2023/6/8 2:39 下午
  * @Version 1.0
  */
-@TableName("t_product_swiper_image")
+@TableName("t_wxuserinfo")
 @Data
 public class WxUserInfo {
 
@@ -33,7 +33,7 @@ public class WxUserInfo {
     @JsonSerialize(using = CustomDateTimeSerialize.class)
     private Date lastLoginDate;
 
-    @TableField(select = false)
+    @TableField(select = false,exist = false)
     private String code;
 
 }

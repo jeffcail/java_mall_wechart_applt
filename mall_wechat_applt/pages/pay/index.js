@@ -52,6 +52,11 @@ Page({
       method: "POST",
     });
     console.log(res)
+    
+    const token = result.token;
+    if (result.code === 0) {
+      wx.setStorageSync('token', token);
+    }
   },
 
   /**
