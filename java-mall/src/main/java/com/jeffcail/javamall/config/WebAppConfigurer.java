@@ -1,7 +1,9 @@
 package com.jeffcail.javamall.config;
 
+import com.jeffcail.javamall.interceptor.JwtInterceptor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -35,5 +37,18 @@ public class WebAppConfigurer implements WebMvcConfigurer {
 
         registry.addResourceHandler("/image/productIntroImgs/**").
                 addResourceLocations("file:/Users/cc/project/github/java/java_mall_wechat_applt/java-mall/productIntroImgs/");
+    }
+
+    public JwtInterceptor jwtInterceptor() {
+        return new JwtInterceptor();
+    }
+
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        String[] patterns = new String[]{"/api/wx/user/login", "/image/swiper/**", "/image/bigType/**", "/image/productImages/**",
+        "/image/detail/**", "/image/productParaImgs/**", "/image/productIntroImgs/**", "/api/**"};
+        registry.addInterceptor(jwtInterceptor())
+                .addPathPatterns("/**")
+                .excludePathPatterns(patterns);
     }
 }
