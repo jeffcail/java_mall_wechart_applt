@@ -26,3 +26,16 @@ weixin:
   jscode2sessionUrl: https://api.weixin.qq.com/sns/jscode2session
   appid:              # 真实的appid
   secret:             # 真实的secret
+
+# 微信支付设置
+# appid
+# mch_id 商户号
+# key 商户的key 【api密钥】
+# url api请求地址
+# notify_url 服务器异步通知页面路径
+weixinpayconfig:
+  appid:
+  mch_id:
+  key:
+  url:
+  notify_url:

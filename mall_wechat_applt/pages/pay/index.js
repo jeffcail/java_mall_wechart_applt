@@ -3,7 +3,8 @@ import {
   getBaseUrl,
   request,
   getWxLogin,
-  getUserProfile
+  getUserProfile,
+  requestPay
 } from '../../utils/request.js';
 import regeneratorRuntime from '../../lib/runtime/runtime';
 Page({
@@ -95,6 +96,24 @@ Page({
     }
     const res = await request({url:"/api/my/order/create", method:"POST", data:orderParam});
     console.log("orderNo="+res.orderNo)
+
+    // 调用统一下单预支付
+    const prePay = await request({url:"/api/my/order/prePay", method:"POST",data:orderNo});
+    let payRes = await requestPay(prePay);
+
+    // 删除缓冲中，已经支付的商品
+    let newCart=wx.getStorageSync('cart');
+    newCart=newCart.filter(v=>!v.checked);
+
+    wx.setStorageSync('cart', newCart);
+
+    wx.showToast({
+      title: '支付成功',
+      icon:'none'
+    })
+    wx.navigateTo({
+      url: '/pages/order/index?type=0'
+    })
   },
 
   /**

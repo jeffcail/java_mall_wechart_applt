@@ -45,6 +45,24 @@ export const getUserProfile=()=>{
   })
 }
 
+/**
+ * promise形式的 小程序微信支付
+ */
+export const requestPay=(pay)=>{
+  return new Promise((resolve,reject)=>{
+    wx.requestPayment({
+      ...pay,
+      success:(res)=>{
+        resolve(res)
+      },
+      fail:(err)=>{
+        reject(err)
+      }
+    })
+  });
+}
+
+
 
 /**
  * 后端请求工具类
